@@ -31,8 +31,8 @@ Change to the directory of your Xcode project, and Create and Edit your Podfile 
 
 Copy and paste the following commands into the Podfile.    
 
-    platform :ios, '7.0'
-    pod 'MagnetMobileServer', :git => 'https://github.com/magnetsystems/magnet-sdk-ios.git', :tag => 'v2.1.0'
+    platform :ios, '6.0'
+    pod 'MagnetMobileServer', :git => 'https://github.com/magnetsystems/magnet-sdk-ios.git', :tag => 'v2.0.0'
     
 Install the SDK into your project by navigating to the project directory and executing the following command.
     
