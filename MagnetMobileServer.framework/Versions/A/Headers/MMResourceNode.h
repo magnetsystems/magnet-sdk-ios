@@ -11,7 +11,7 @@
 @property(nonatomic, copy) NSString *magnetType;
 
 /** List of attributes. */
-+ (NSArray *)attributeMappings;
++ (NSDictionary *)attributeMappings;
 
 /** 1-1 relationship mappings. */
 + (NSDictionary *)oneToOneRelationshipMappings;
