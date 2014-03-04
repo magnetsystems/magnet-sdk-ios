@@ -19,8 +19,8 @@
 // Is the returnType an MMResourceNode?
 @property(nonatomic, assign) BOOL isReturnTypeANode;
 
+@property(nonatomic, copy) NSSet *produces;
 
-/** Returns the RestKit mapping for the class */
-//+ (RKObjectMapping *)restMapping;
+@property(nonatomic, copy) NSSet *consumes;
 
 @end
