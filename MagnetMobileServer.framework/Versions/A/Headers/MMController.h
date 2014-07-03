@@ -1,11 +1,9 @@
-//
-//  MMController.h
-//
-//
-//  Copyright (c) 2013 Magnet Systems, Inc. All rights reserved.
-//
-
-/** Marker interface used to signify an application's controller logic. */
+/**
+ * Copyright (c) 2012-2014 Magnet Systems, Inc. All rights reserved.
+ */
+ 
 @interface MMController : NSObject
+
++ (NSDictionary *)metaData;
 
 @end

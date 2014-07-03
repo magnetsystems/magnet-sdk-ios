@@ -1,20 +1,19 @@
-//
-//  MMOAuthHandler.h
-//
-//
-//  Copyright (c) 2013 Magnet Systems, Inc. All rights reserved.
-//
+/**
+ * Copyright (c) 2012-2014 Magnet Systems, Inc. All rights reserved.
+ */
+ 
+#import <UIKit/UIKit.h>
 
 @interface MMOAuthHandler : NSObject
 
 /**
- Presents view controller with a webview on top of another view controller.
+ Presents the view controller with a webview on top of another view controller.
 
  @param URL The URL to display in the webview.
  @param controller The view controller on which the webview is presented.
  @param animated Pass YES to animate the presentation; otherwise, pass NO.
- @param completion A completion handler or NULL.
- @param dismissCompletion A dismiss completion handler or NULL.
+ @param completion A completion handler, or NULL.
+ @param dismissCompletion A dismiss completion handler, or NULL.
 
  */
 + (void)presentWebViewWithURL:(NSURL *)URL
@@ -24,7 +23,7 @@
             dismissCompletion:(void (^)(void))dismissCompletion;
 
 /**
- * Posted when a OAuth Login Exception is received.
+ * Posted when an OAuth Login Exception is received.
  */
 extern NSString *const MMOAuthLoginExceptionReceived;
 

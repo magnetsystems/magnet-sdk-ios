@@ -1,14 +1,13 @@
-//
-//  MMLoginServiceProtocol.h
-//
-//
-//  Copyright (c) 2013 Magnet Systems, Inc. All rights reserved.
-//
-
-#import "MMLoginServiceDelegate.h"
+/**
+ * Copyright (c) 2012-2014 Magnet Systems, Inc. All rights reserved.
+ */
+ 
+@protocol MMLoginServiceDelegate;
+@class MMLoginCredentials;
+@class MMCall;
 
 /**
- * The MMLoginServiceProtocol protocol defines the operations that can be performed using the `MMLoginService`.
+ * The MMLoginServiceProtocol protocol defines the operations that can be performed using the MMLoginService.
  */
 @protocol MMLoginServiceProtocol <NSObject>
 
@@ -17,28 +16,28 @@
  */
 @property(nonatomic, weak) id <MMLoginServiceDelegate> delegate;
 
-/** Credentials container. */
-@property(nonatomic, copy) NSDictionary *credentials;
+/** Contains the login credentials. */
+@property(nonatomic, strong) MMLoginCredentials *credentials;
 
 /**
- Asynchronous operation, attempts authentication using provided credentials.
+ Asynchronous operation: attempts authentication using the specified login credentials.
  
- @param credentials A dictionary containing credentials.
- @param block A block object to be executed when the request succeeds. This block has no return value and takes one argument: a `BOOL` that denotes authentication success or failure.
+ @param credentials The login credentials object containing the username, password, server address and so on.
+ @param block The block to be executed on the completion of the request. This block has no return value and takes two arguments: the success flag and the error that occurred during the request.
  
  */
-- (void)loginWithCredentials:(NSDictionary *)credentials
-                       block:(void (^)(BOOL success))block;
+- (MMCall *)loginWithCredentials:(MMLoginCredentials *)credentials
+                       block:(void (^)(BOOL success, NSError *error))block;
 
 /**
- Asynchronous operation, attempts authentication using saved credentials.
- 
- @param block A block object to be executed when the request succeeds. This block has no return value and takes one argument: a `BOOL` that denotes authentication success or failure.
+ Asynchronous operation: logs in to the Magnet Mobile App Server using stored credentials. If the credentials are missing, the error callback will be fired.
+
+ @param block The block to be executed on the completion of the request. This block has no return value and takes two arguments: the success flag and the error that occurred during the request.
  
  */
-- (void)loginWithSavedCredentials:(void (^)(BOOL success))block;
+- (void)loginWithSavedCredentials:(void (^)(BOOL success, NSError *error))block;
 
-/** Logs the current user out. */
-- (void)logout;
+/** Logs the current user out from the Magnet Mobile App Server. */
+- (MMCall *)logout;
 
 @end

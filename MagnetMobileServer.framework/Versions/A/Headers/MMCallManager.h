@@ -1,25 +1,22 @@
-//
-//  MMCallManager.h
-//
-//
-//  Copyright (c) 2013 Magnet Systems, Inc. All rights reserved.
-//
-
+/**
+ * Copyright (c) 2012-2014 Magnet Systems, Inc. All rights reserved.
+ */
+ 
 @class MMCall;
 
 /**
- * This interface provides the basic cache management, queue management,
+ * This interface provides basic cache management, queue management,
  * and reliable calls management.  All methods in this interface are blocking
  * methods.
  */
 @interface MMCallManager : NSObject
 
 /**
- Return the shared instance of the call manager
+ Retrieve the shared instance of the call manager.
 
  @return The shared call manager instance.
  */
-+ (instancetype)instance;
++ (instancetype)sharedManager;
 
 /**
  * Clear all cached results.
@@ -32,30 +29,30 @@
 - (void)cancelAllPendingCalls;
 
 /**
- * Cancel all pending reliable calls in a queue.
- * @param queueName A queue name.
+ * Cancel all pending reliable calls in the specified queue.
+ * @param queueName The queue name.
  */
 - (void)cancelAllPendingCalls:(NSString *)queueName;
 
 /**
- * Get all pending reliable calls.
+ * Retrieve all pending reliable calls.
  * @return A collection of pending Call objects.
  */
 - (NSArray *)allPendingCalls;
 
 /**
- * Get all pending reliable calls in a queue.  This is a blocking method.
- * @param queueName A queue name.
+ * Retrieve all pending reliable calls in the specified queue.  This is a blocking method.
+ * @param queueName The queue name.
  * @return A collection of pending MMCall objects.
  */
 - (NSArray *)allPendingCalls:(NSString *)queueName;
 
 /**
- * Get a MMCall instance by its unique ID.  It is for reliable calls
- * only. May return nil if callId is invalid, the call is timed out, or the async
+ * Retrieve a MMCall instance by its unique ID.  This is for reliable calls
+ * only. 
+ * @param callId An MMCall unique ID.
+ * @return An MMCall object, or `nil` if the unique ID is invalid, the call is timed out, or the asynchronous
  * call was "done".
- * @param callId A MMCall uuid.
- * @return A MMCall object or nil.
  */
 - (MMCall *)call:(NSString *)callId;
 
@@ -65,9 +62,14 @@
 - (void)reset;
 
 /**
- * Triggers all non-empty thread queues to be awaken (if asleep) to
+ * Triggers all non-empty thread queues to be awakened (if asleep) to
  * re-attempt processing.
  */
 - (void)run;
+
+/**
+ * Dispose all completed calls.
+ */
+- (void)disposeAllDoneCallsWithBlock:(void (^)(int numberOfDisposedCalls, NSError *error))block;
 
 @end

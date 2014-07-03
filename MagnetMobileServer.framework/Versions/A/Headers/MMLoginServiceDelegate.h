@@ -1,10 +1,7 @@
-//
-//  MMLoginServiceDelegate.h
-//
-//
-//  Copyright (c) 2013 Magnet Systems, Inc. All rights reserved.
-//
-
+/**
+ * Copyright (c) 2012-2014 Magnet Systems, Inc. All rights reserved.
+ */
+ 
 /**
  * The `MMLoginServiceDelegate` protocol defines the optional methods implemented by delegates of `MMLoginService` objects.
  */
@@ -21,17 +18,17 @@
 /**
  Tells the delegate that the login service failed to login.
  
- @param error A `NSError` object describing the error that occured.
+ @param error An `NSError` object describing the error that occurred.
  
  */
 - (void)loginServiceLoginAttemptFailedWithError:(NSError *)error;
 
 /**
- Tells the delegate that the login service should attempt to login.
+ Tells the delegate that the login service needs to attempt to login.
  
- The delegate would most likely present a login form to capture the credentials and then instruct the login service to attempt login on receiving this event notification.
+ The delegate would most likely present a login form to capture the credentials, and then instruct the login service to attempt login on receiving this event notification.
  
- @param error A `NSError` object describing the error that occured.
+ @param error An `NSError` object describing the error that occurred.
  
  */
 - (void)loginServiceNeedsToAttemptLogin:(NSError *)error;

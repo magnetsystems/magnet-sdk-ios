@@ -1,11 +1,8 @@
-//
-//  MagnetMobileServer.h
-//
-//
-//  Copyright (c) 2013 Magnet Systems, Inc. All rights reserved.
-//
-
-#import "MMListResponse.h"
+/**
+ * Copyright (c) 2012-2014 Magnet Systems, Inc. All rights reserved.
+ */
+ 
+#import "MMIterableResource.h"
 #import "MMController.h"
 #import "MMData.h"
 #import "MMNodeMetaData.h"
@@ -13,19 +10,18 @@
 #import "MMLoginService.h"
 #import "MMLoginServiceDelegate.h"
 #import "MMLoginServiceProtocol.h"
-#import "MMRoutingInfoService.h"
-#import "MMRoutingInfoServiceDelegate.h"
-#import "MMRoutingInfoServiceProtocol.h"
+#import "MMLoginCredentials.h"
 #import "MMResourceNode.h"
-#import "MMLoginViewController.h"
 #import "MMControllerMethod.h"
 #import "MMControllerParam.h"
 #import "MMConstraint.h"
-#import "MMNetworkWifiConstraint.h"
-#import "MMControllerMetaData.h"
+#import "MMWiFiConstraint.h"
+#import "MMWWANConstraint.h"
 #import "MMCall.h"
 #import "MMCallManager.h"
 #import "MMOptions.h"
 #import "MMAsyncCallOptions.h"
 #import "MMReliableCallOptions.h"
+#import "MMLogger.h"
+#import "MMTagUtilities.h"
 #import "MMOAuthHandler.h"

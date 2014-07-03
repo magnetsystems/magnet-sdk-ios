@@ -1,11 +1,10 @@
-//
-//  MMData.h
-//
-//
-//  Copyright (c) 2013 Magnet Systems, Inc. All rights reserved.
-//
+/**
+ * Copyright (c) 2012-2014 Magnet Systems, Inc. All rights reserved.
+ */
+ 
+#import <Mantle/Mantle.h>
 
-@interface MMData : NSObject <NSCoding>
+@interface MMData : MTLModel
 
 /**
  * The mime type associated with this data object.

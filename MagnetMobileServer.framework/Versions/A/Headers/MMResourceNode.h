@@ -1,25 +1,17 @@
-//
-//  MMResourceNode.h
-//
-//
-//  Copyright (c) 2013 Magnet Systems, Inc. All rights reserved.
-//
+/**
+ * Copyright (c) 2012-2014 Magnet Systems, Inc. All rights reserved.
+ */
+ 
+#import <Mantle/Mantle.h>
 
-@interface MMResourceNode : NSObject <NSCoding>
+@interface MMResourceNode : MTLModel
 
-/** Type of the node. */
+/** The node type. */
 @property(nonatomic, copy) NSString *magnetType;
 
-/** List of attributes. */
 + (NSDictionary *)attributeMappings;
 
-/** 1-1 relationship mappings. */
-+ (NSDictionary *)oneToOneRelationshipMappings;
++ (NSDictionary *)listAttributeTypes;
 
-/** 1-n relationship mappings. */
-+ (NSDictionary *)oneToManyRelationshipMappings;
-
-/** Sets up mappings for REST communication. */
-+ (void)setupMappings;
-
++ (NSDictionary *)referenceAttributeTypes;
 @end
